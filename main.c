@@ -78,6 +78,16 @@ int main()
 			list_show(head);
 			system("PAUSE");
 			continue;
+		case 11:
+			find_value(&find);
+			list_find_sentry(&head, find);
+			system("PAUSE");
+			continue;
+		case 12:
+			find_value(&find);
+			list_find_delete_sentry(&head, find);
+			system("PAUSE");
+			continue;
 		default:
 			continue;
 		}
