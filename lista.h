@@ -20,5 +20,3 @@ void list_find_delete(list**, int);
 void list_from_file(list **);
 int check_sting(char *);
 void list_to_file(list *);
-void list_find_sentry(list **, int);
-void list_find_delete_sentry(list**, int);

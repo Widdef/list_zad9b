@@ -133,11 +133,11 @@ void list_find_delete(list **p, int find)
 			break;
 		marker = &(*marker)->next;
 	}
-	if ((*marker)->next != NULL)
+	if ((*marker)->next->next != NULL)
 	{
 		list *tmp = (*marker)->next;
-		(*marker)->next = (*marker)->next->next;
 		(*marker)->next->next->prev = tmp->prev;
+		(*marker)->next = (*marker)->next->next;
 		free(tmp);
 	}
 	else
@@ -217,68 +217,4 @@ void list_to_file(list *head)
 		printf("Podales zly format pliku.\n");
 		system("PAUSE");
 	} while (!value); // Pêtla nie zakonczy sie do momentu podania pliku z rozszerzeniem txt
-}
-
-void list_find_sentry(list **p, int value)
-{
-	if (*p == NULL)
-	{
-		printf("Lista jest pusta\n");
-		return;
-	}
-	list **marker = p;
-	list *new_el = (list*)malloc(sizeof(list));
-	while ((*marker)->next)
-	{
-		marker = &(*marker)->next;
-	}
-	new_el->data = value;
-	new_el->next = NULL;
-	(*marker)->next = new_el;
-	while ((*p)->next->data != value)
-	{
-		p = &(*p)->next;
-	}
-	if ((*p)->next == new_el)
-		printf("Element nie istnieje\n");
-	else
-		printf("Element istnieje\n");
-	(*marker)->next = NULL;
-	free(new_el);
-}
-
-void list_find_delete_sentry(list **p, int value)
-{
-	if (*p == NULL)
-	{
-		printf("Lista jest pusta");
-		return;
-	}
-	list **marker = p;
-	list *tmp;
-	list *new_el = (list*)malloc(sizeof(list));
-	while ((*marker)->next)
-	{
-		marker = &(*marker)->next;
-	}
-	new_el->data = value;
-	new_el->next = NULL;
-	(*marker)->next = new_el;
-	while ((*p)->next->data != value)
-	{
-		p = &(*p)->next;
-	}
-	(*marker)->next = NULL;
-	if ((*p)->next == new_el)
-		printf("Element nie istnieje\n");
-	else
-	{
-		tmp = (*p)->next;
-		(*p)->next = (*p)->next->next;
-		(*p)->next = *p;
-		free(tmp);
-	}
-	free(new_el);
-
-
 }

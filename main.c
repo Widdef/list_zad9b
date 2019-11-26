@@ -51,14 +51,14 @@ int main()
 		case 3:
 			list_delete_last(&head);
 			continue;
-		/*case 4:
+		case 4:
 			list_show_first(&head);
 			system("PAUSE");
 			continue;
 		case 5:
 			list_show_last(&head);
 			system("PAUSE");
-			continue;*/
+			continue;
 		case 6:
 			find_value(&find);
 			list_find(&head, find);
@@ -78,16 +78,6 @@ int main()
 			list_show(head);
 			system("PAUSE");
 			continue;
-		/*case 11:
-			find_value(&find);
-			list_find_sentry(&head, find);
-			system("PAUSE");
-			continue;
-		case 12:
-			find_value(&find);
-			list_find_delete_sentry(&head, find);
-			system("PAUSE");
-			continue;*/
 		default:
 			continue;
 		}
